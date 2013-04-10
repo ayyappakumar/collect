@@ -7,22 +7,25 @@
   </head>
   <body id="asx" onload = "validateme('3');">
     <form id="formsa" name="formsa" action="#" data-form="valiform" >
-      <input name="firstname" type="text"  size="30" maxlength="50" data-num="text">
-      <input name="lastname" type="text"  data-num="number" >
-      <input  type="text"  data-num="time" >
-      <input  type="text"  data-num="phone" >
-      <input  type="text"  data-num="pincode" >
-      <input type="button" value="Show form elements" name="btnTwo" id="btnTwo" onclick= "validateme(this.form);">
+      <input name="firstname" type="text"  size="30" maxlength="50" data-num="text" placeholder="text">
+      <input name="lastname" type="text"  data-num="number" placeholder="number">
+      <input  type="text"  data-num="time" placeholder="time">
+      <input  type="text"  data-num="phone" placeholder="phone">
+      <input  type="text"  data-num="pincode" placeholder="pincode">
+      <input  type="text"  data-num="dates" placeholder="dates">
+      <input type="button" value="Show form elements" name="btnTwo" id="btnTwo" data-num="submit">
     </form>
     <form id="formsa1" >
       <input name="firstname" type="text" value="enter" size="30" maxlength="50" data-num="number">
       <input name="lastname" type="text" value="enter" data-num="text">
+       
     </form>
     <form id="formsa2" data-form="valiform">
       <input name="firstname" type="text" value="enter" size="30" maxlength="50" data-num="number">
       <input name="lastname" type="text" value="enter" data-num="text">
       <input  type="text"  data-num="time" >
         <input  type="text"  data-num="pincode" >
+        <input type="button" value="Show form elements1" data-num="submit">
     </form>
     <script src="script.js"></script>
   </body>
