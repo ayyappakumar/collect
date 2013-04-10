@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>forms</title>
+
+  </head>
+  <body id="asx" onload = "validateme('3');">
+    <form id="formsa" name="formsa" action="#" data-form="valiform" >
+      <input name="firstname" type="text"  size="30" maxlength="50" data-num="text">
+      <input name="lastname" type="text"  data-num="number" >
+      <input  type="text"  data-num="time" >
+      <input  type="text"  data-num="phone" >
+      <input  type="text"  data-num="pincode" >
+      <input type="button" value="Show form elements" name="btnTwo" id="btnTwo" onclick= "validateme(this.form);">
+    </form>
+    <form id="formsa1" >
+      <input name="firstname" type="text" value="enter" size="30" maxlength="50" data-num="number">
+      <input name="lastname" type="text" value="enter" data-num="text">
+    </form>
+    <form id="formsa2" data-form="valiform">
+      <input name="firstname" type="text" value="enter" size="30" maxlength="50" data-num="number">
+      <input name="lastname" type="text" value="enter" data-num="text">
+      <input  type="text"  data-num="time" >
+        <input  type="text"  data-num="pincode" >
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
