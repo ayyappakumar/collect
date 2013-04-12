@@ -1,57 +1,64 @@
 
 //(function(){
 var nameval = false,
-    emailval = false,
-    timeval = false,
-    phoneval = false,
-    datesval = false,
-    codeval = false;
+emailval = false,
+timeval = false,
+phoneval = false,
+datesval = false,
+codeval = false,
+sname = true,
+semail = true,
+stime= true,
+sphone = true,
+sdates = true,
+scode = true;
 var validateme =  function(option) {
   for (var z=0;z<option;z++) {
     var x = document.forms[z];
     var a = z;
     var formimpo = x.getAttribute('data-form');
     if(x.hasAttribute('data-form')) {
-      if(formimpo === 'valiform') {
-        for (var i=0;i<x.length;i++) {
-          console.log(x.elements[i].getAttribute('data-num'));
-          var brand = x.elements[i].getAttribute('data-num');
-          if(brand === 'number') {
-            //            x.elements[i].setAttribute('id','numclass'); 
-            x.elements[i].setAttribute('name','numclass'); 
-            x.elements[i].setAttribute('onblur','email('+ a +')');
-          } 
-          if(brand === 'text') {
-            //            x.elements[i].setAttribute('class','textclass1');
-            x.elements[i].setAttribute('name','textclass'); 
-            x.elements[i].setAttribute('onblur','name_validation('+ a +')');
-          }
-          if(brand === 'time') {
-            //            x.elements[i].setAttribute('class','textclass1');
-            x.elements[i].setAttribute('name','timeclass'); 
-            x.elements[i].setAttribute('onblur','formtime('+ a +')');
-          }
-          if(brand === 'phone') {
-            //            x.elements[i].setAttribute('class','textclass1');
-            x.elements[i].setAttribute('name','phoneclass'); 
-            x.elements[i].setAttribute('onblur','telephone_vali('+ a +')');
-          }
-          if(brand === 'pincode') {
-            //            x.elements[i].setAttribute('class','textclass1');
-            x.elements[i].setAttribute('name','codeclass'); 
-            x.elements[i].setAttribute('onblur','pinnum_vali('+ a +')');
-          } 
-          if(brand === 'dates') {
-            //            x.elements[i].setAttribute('class','textclass1');
-            x.elements[i].setAttribute('name','dateclass'); 
-            x.elements[i].setAttribute('onblur','isValidDate('+ a +')');
-          }
-          if(brand === 'submit') {
-            //            x.elements[i].setAttribute('class','textclass1');
-            x.elements[i].setAttribute('name','submitclass'); 
-            x.elements[i].setAttribute('onclick','formsubmit('+ a +')');
-          }
+      //      if(formimpo === 'valiform') {
+      for (var i=0;i<x.length;i++) {
+        console.log(x.elements[i].getAttribute('data-num'));
+        brand = x.elements[i].getAttribute('data-num');
+        if(brand === 'email') {
+          //            x.elements[i].setAttribute('id','numclass'); 
+          x.elements[i].setAttribute('name','emailclass'); 
+          x.elements[i].setAttribute('onblur','email('+ a +')');
+        } 
+        if(brand === 'text') {
+          //            x.elements[i].setAttribute('class','textclass1');
+          x.elements[i].setAttribute('name','textclass'); 
+          x.elements[i].setAttribute('onblur','name_validation('+ a +')');
         }
+        if(brand === 'time') {
+          //            x.elements[i].setAttribute('class','textclass1');
+          x.elements[i].setAttribute('name','timeclass'); 
+          x.elements[i].setAttribute('onblur','formtime('+ a +')');
+        }
+        if(brand === 'phone') {
+          //            x.elements[i].setAttribute('class','textclass1');
+          x.elements[i].setAttribute('name','phoneclass'); 
+          x.elements[i].setAttribute('onblur','telephone_vali('+ a +')');
+        }
+        if(brand === 'pincode') {
+          //            x.elements[i].setAttribute('class','textclass1');
+          x.elements[i].setAttribute('name','codeclass'); 
+          x.elements[i].setAttribute('onblur','pinnum_vali('+ a +')');
+        } 
+        if(brand === 'dates') {
+          //            x.elements[i].setAttribute('class','textclass1');
+          x.elements[i].setAttribute('name','dateclass'); 
+          x.elements[i].setAttribute('onblur','isValidDate('+ a +')');
+        }
+        if(brand === 'submit') {
+          //            x.elements[i].setAttribute('class','textclass1');
+          x.elements[i].setAttribute('name','submitclass'); 
+          //            x.elements[i].setAttribute('onclick','formsubmit('+ a +')');
+          x.elements[i].setAttribute('onclick','formsubmit('+ a +')');
+        }
+      //        }
       }
     }
   }
@@ -59,7 +66,7 @@ var validateme =  function(option) {
 
 function email(d) {
   var z = document.forms[d];
-  var email1 = z.elements["numclass"].value;
+  var email1 = z.elements["emailclass"].value;
   var filter = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;   
   if (!filter.test(email1)) {
     alert('Please provide a valid email address');
@@ -165,43 +172,73 @@ function isValidDate(d) {
     alert("Date is not in a valid format.");
     datesval = false;
   }else {
-  var day = matchArray[1],
-  month = matchArray[3],
-  year = matchArray[4];
-  if (month < 1 || month > 12) { 
-    alert("Month must be between 1 and 12.");
-    datesval = false;
-  }
-  if (day < 1 || day > 31) {
-    alert("Day must be between 1 and 31.");
-    datesval = false;
-  }
-  if ((month==4 || month==6 || month==9 || month==11) && day==31) {
-    alert("Month " + month + " doesn't have 31 days! ");
-    datesval = false;
-  }
-  if (month == 2) { 
-    var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-    if (day>29 || (day==29 && !isleap)) {
-      alert("February " + year + " doesn't have " + day + " days!");
+    var day = matchArray[1],
+    month = matchArray[3],
+    year = matchArray[4];
+    if (month < 1 || month > 12) { 
+      alert("Month must be between 1 and 12.");
       datesval = false;
     }
-  }
+    if (day < 1 || day > 31) {
+      alert("Day must be between 1 and 31.");
+      datesval = false;
+    }
+    if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+      alert("Month " + month + " doesn't have 31 days! ");
+      datesval = false;
+    }
+    if (month == 2) { 
+      var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+      if (day>29 || (day==29 && !isleap)) {
+        alert("February " + year + " doesn't have " + day + " days!");
+        datesval = false;
+      }
+    }
   }
 }
 
 function formsubmit(a){
-  if (datesval == false || codeval == false || phoneval == false || nameval == false || emailval == false || phoneval == false) {
-    name_validation(a);
-    telephone_vali(a);
-    email(a);
-    pinnum_vali(a);
-    isValidDate(a);  
-    formtime(a);
-  }else{
-    alert('success')
+
+  var x = document.forms[a];
+
+  for (var i=0;i<x.length;i++) {  
+//  var req = x.elements[i].value;
+//    if ($(".requi").val() == "") {
+//          $("#house_container span").html("Please fill-up the above details")
+//        } else {
+//          $("#house_container span").html("")
+//        }
+    brand = x.elements[i].getAttribute('data-num');
+    if(brand === 'email') {
+      email(a);
+      semail = false;
+    } 
+    if(brand === 'text') {
+      name_validation(a);
+      sname = false;
+    }
+    if(brand === 'time') {
+      formtime(a);
+      stime = false;
+    }
+    if(brand === 'phone') {
+      telephone_vali(a);
+      sphone = false;
+    }
+    if(brand === 'pincode') {
+      pinnum_vali(a);
+       scode = false;
+    } 
+    if(brand === 'dates') { 
+      isValidDate(a); 
+       sdates = false;
+    }
   }
-}
+   if ((datesval == true || sdates == true) && (codeval == true || scode == true) && (phoneval == true || sphone == true) && (nameval == true || sname == true) && (emailval == true || semail == true) && (phoneval == true || sphone == true)) {
+     x.submit();
+ } 
+   }
+
 
 //})();
 

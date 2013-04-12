@@ -3,29 +3,39 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>forms</title>
-
+    <style>
+      form {
+        width: 300px;
+        margin: 20px 20px;
+      }
+      input {
+        width: 280px;
+      }
+    </style>
   </head>
   <body id="asx" onload = "validateme('3');">
-    <form id="formsa" name="formsa" action="#" data-form="valiform" >
-      <input name="firstname" type="text"  size="30" maxlength="50" data-num="text" placeholder="text">
-      <input name="lastname" type="text"  data-num="number" placeholder="number">
-      <input  type="text"  data-num="time" placeholder="time">
-      <input  type="text"  data-num="phone" placeholder="phone">
-      <input  type="text"  data-num="pincode" placeholder="pincode">
-      <input  type="text"  data-num="dates" placeholder="dates">
+    <form id="formsa" name="formsa" action="test.html" data-form="valiform" >
+      NAME<input type="text"  size="30" maxlength="50" data-num="text" placeholder="text">
+      EMAIL <input type="text"  data-num="email" placeholder="EMAIL">
+      TIME <input  type="text"  data-num="time" placeholder="time">
+      PHONE<input  type="text"  data-num="phone" placeholder="phone">
+      PINCODE <input  type="text"  data-num="pincode" placeholder="pincode">
+      DATE <input  type="text"  data-num="dates" placeholder="dates">
       <input type="button" value="Show form elements" name="btnTwo" id="btnTwo" data-num="submit">
     </form>
-    <form id="formsa1" >
-      <input name="firstname" type="text" value="enter" size="30" maxlength="50" data-num="number">
-      <input name="lastname" type="text" value="enter" data-num="text">
-       
+    <hr/>
+    <form id="formsa1" action="test2.html" >
+      NAME<input type="text" value="enter" data-num="text">
+      EMAIL<input  type="text" value="enter" size="30" maxlength="50" data-num="email"> 
+      <input type="button" value="Show form elements2" data-num="submit">
     </form>
-    <form id="formsa2" data-form="valiform">
-      <input name="firstname" type="text" value="enter" size="30" maxlength="50" data-num="number">
-      <input name="lastname" type="text" value="enter" data-num="text">
-      <input  type="text"  data-num="time" >
-        <input  type="text"  data-num="pincode" >
-        <input type="button" value="Show form elements1" data-num="submit">
+    <hr/>
+    <form id="formsa2" data-form="valiform" action="test3.html" >
+     NAME <input  type="text" value="enter" size="30" maxlength="50" data-num="text">
+     EMAIL <input  type="text" value="enter" data-num="email">
+     TIME <input  type="text"  data-num="time" >
+     PINCODE  <input  type="text"  data-num="pincode" >
+     <input type="button" value="Show form elements3" data-num="submit">
     </form>
     <script src="script.js"></script>
   </body>
